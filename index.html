@@ -6,233 +6,84 @@
   <title>OpenEmu Release Notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.1.2/tailwind.min.css" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-
-  <style>
-    .timeline li a { border-bottom: 1px dashed currentColor; color: #FFF; }
-    .timeline li a:hover,.timeline li a:focus { opacity: .33; }
-    .timeline li b { color: #FFF; }
-  </style>
+  <link href="notes.css" rel="stylesheet" />
 
 </head>
-<body class="p-4 bg-gray-900 text-gray-500 leading-tight">
-  <div class="ui md:flex">
-    <header class="text-center flex flex-wrap justify-center items-center md:block">
-      <a href="https://openemu.org/"><img src="https://openemu.org/rnotes/logo-125px.png" alt="OpenEmu Logo" class="w-24 md:w-auto h-auto" /></a>
-      <p class="ml-4 md:ml-0 py-3 text-sm">
-        <small class="pb-1 block opacity-75">Support OpenEmu</small>
-        <a href="https://openemu.org/donate/" class="pb-px px-3 border-t border-red-500 bg-red-700 text-white hover:bg-red-600 focus:bg-red-600 inline-block rounded-full shadow">Donate</a>
+<body>
+  <div class="ui">
+    <header>
+      <a href="https://openemu.org/" class="oe-logo"><img src="https://openemu.org/rnotes/logo-125px.png" alt="OpenEmu Logo" /></a>
+      <p>
+        <small>Support OpenEmu</small>
+        <a href="https://openemu.org/donate/" class="btn btn-red">Donate</a>
       </p>
-      <hr class="my-4 border-gray-800 w-full md:hidden" />
     </header>
-    <main class="timeline ml-6 text-sm md:text-base flex-1">
-      <section v-for="(value, index) in releases" class="pl-8 pb-10 relative">
-        <h4 class="mb-8 text-gray-400 font-bold md:text-2xl">
-          OpenEmu <b v-html="value.version"></b>
-          <small v-if="value.alert" v-html="value.alert" class="block text-sm text-red-600"></small>
+    <main>
+
+<!-- version -->
+      <section>
+        <h4>
+          OpenEmu <b>v2.1</b>
+          <small>Requires macOS 10.14 or above</small>
         </h4>
-        <ul class="time-changes ml-4">
-          <li v-for="(value, index) in value.notes" v-html="value.item" class="pb-4"></li>
+        <ul>
+          <li>Initial macOS 10.15 Catalina support.</li>
+          <li>Added new Metal renderer and display architecture, significantly improving frame pacing, performance and battery life — no more video latency at increased window sizes or fullscreen.</li>
+          <li>Added new configurable, multi-pass post processing shader system using Slang — several preset shaders for impressive effects included.</li>
+          <li>Added Rapid Fire Toggle and Rapid Fire Clear special keys in Controls preferences — used in-game when pressing a button + the toggle key to enable.</li>
+          <li>Improved support for Nintendo Switch Pro Controller, including automatic analog calibration and support for USB connectivity.</li>
+          <li>Improved support for USB Audio output devices.</li>
+          <li>Fixed stuck search filter when switching between Save States and Screenshots collections.</li>
+          <li>Removed Cg and Syphon frameworks.</li>
+          <li>Updated localizations.</li>
+          <li>Other bug fixes and performance improvements.</li>
         </ul>
-        <h5 v-if="value.known" class="mb-4 pt-4 font-bold text-yellow-500">Known Issues</h5>
-        <ul v-if="value.known" class="timeline-known ml-4">
-          <li v-for="(value, index) in value.known" v-html="value.item" class="pb-4"></li>
+        <h5>Known Issues</h5>
+        <ul>
+          <li><b>IMPORTANT:</b> Due to new security rules in macOS 10.15 Catalina, in order for keyboard input to work you MUST grant OpenEmu "Input Monitoring" access in the Privacy pane of Security & Privacy preferences.</li>
+          <li>There may be a slight delay the first time after launching a game due to shaders compiling.</li>
+          <li>The old Cg "filters" are not compatible with the new shader system.</li>
+          <li>Control mappings may be reset due to changes in macOS 10.15 Catalina.</li>
         </ul>
-        <div class="timeline-ui w-5 h-full flex flex-col items-center absolute left-0 inset-y-0">
-          <i :class="[index === 0 ? 'bg-transparent': 'bg-gray-800', 'line px-px h-px md:h-2']"></i>
-          <b :class="[index === 0 ? 'bg-gray-700': '', 'point w-4 h-4 border-2 border-gray-700 rounded-full']"></b>
-          <i v-if="releases.length !== index + 1" class="line px-px bg-gray-800 flex-1"></i>
-        </div>
       </section>
+<!-- /version -->
+
+      <section>
+        <h4>
+          OpenEmu <b>vX.XX</b>
+          <small>Some Alert</small>
+        </h4>
+        <ul>
+          <li>Some Change</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora deserunt quae quis harum ea, odio sit, adipisci nobis odit architecto, accusantium, quasi? Officiis, illo quo ad reiciendis. Eum, odio, repudiandae! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium vitae sunt eum natus nam! Sint sed voluptate consequatur assumenda beatae doloribus explicabo culpa itaque, commodi animi, eius eum in est!</li>
+          <li>Some Change</li>
+        </ul>
+        <h5>Known Issues</h5>
+        <ul>
+          <li>Some issue</li>
+          <li>Some issue</li>
+          <li>Some issue</li>
+        </ul>
+      </section>
+      <section>
+        <h4>
+          OpenEmu <b>vX.XX</b>
+          <small>Some Alert</small>
+        </h4>
+        <ul>
+          <li>Some Change</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora deserunt quae quis harum ea, odio sit, adipisci nobis odit architecto, accusantium, quasi? Officiis, illo quo ad reiciendis. Eum, odio, repudiandae! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium vitae sunt eum natus nam! Sint sed voluptate consequatur assumenda beatae doloribus explicabo culpa itaque, commodi animi, eius eum in est!</li>
+          <li>Some Change</li>
+        </ul>
+        <h5>Known Issues</h5>
+        <ul>
+          <li>Some issue</li>
+          <li>Some issue</li>
+          <li>Some issue</li>
+        </ul>
+      </section>
+
     </main>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script>
-    // data
-    var oe = new Vue({
-      el: '.ui',
-      data: {
-        releases: [
-          {
-            version: '2.1',
-            alert: 'Requires macOS 10.14 or above',
-            notes: [
-              {item: 'Initial macOS 10.15 Catalina support.' },
-              {item: 'Added new Metal renderer and display architecture, significantly improving frame pacing, performance and battery life — no more video latency at increased window sizes or fullscreen.' },
-              {item: 'Added new configurable, multi-pass post processing shader system using Slang — several preset shaders for impressive effects included.' },
-              {item: 'Added <b>Rapid Fire Toggle</b> and <b>Rapid Fire Clear</b> special keys in Controls preferences — used in-game when pressing a button + the toggle key to enable.' },
-              {item: 'Improved support for Nintendo Switch Pro Controller, including automatic analog calibration and support for USB connectivity.' },
-              {item: 'Improved support for USB Audio output devices.' },
-              {item: 'Fixed stuck search filter when switching between Save States and Screenshots collections.' },
-              {item: 'Removed Cg and Syphon frameworks.' },
-              {item: 'Updated localizations.' },
-              {item: 'Other bug fixes and performance improvements.' },
-            ],
-            known: [
-              { item: '<b>IMPORTANT:</b> Due to new security rules in macOS 10.15 Catalina, in order for keyboard input to work you MUST grant OpenEmu "Input Monitoring" access in the <a href="https://support.apple.com/guide/mac-help/change-privacy-preferences-on-mac-mh32356/mac">Privacy pane</a> of Security & Privacy preferences.' },
-              { item: 'There may be a slight delay the first time after launching a game due to shaders compiling.' },
-              { item: 'The old Cg "filters" are not compatible with the new shader system.' },
-              { item: 'Control mappings may be reset due to changes in macOS 10.15 Catalina.' },
-            ]
-          },
-          {
-            version: '2.0.9.1',
-            notes: [
-              { item: 'Fixed input not working for some users in the initial 2.0.9 release.' },
-              { item: 'Fixed the Library grid view appearing red in some instances on macOS 10.14 Mojave.' },
-              { item: 'Fixed "Consolidate Files" not copying all the referenced files for CD-based games.' },
-              { item: 'Added Chinese (Traditional) localization.' },
-              { item: 'Updated Catalan, Italian localizations.' },
-            ]
-          },
-          {
-            version: '2.0.8',
-            notes: [
-              { item: 'Added "Display Mode" change support to the HUD bar for display-related options, currently available for Atari 2600, Game Boy, Game Gear, NES, Nintendo DS, Virtual Boy.' },
-              { item: 'Added Next/Last Display Mode change hotkeys.' },
-              { item: 'Improved the UI to better fit macOS 10.14 Mojave native menus and system colors.' },
-              { item: 'Fixed case where a directional button could get stuck.' },
-              { item: 'Fixed a rare input-related crash.' },
-            ]
-          },
-          {
-            version: '2.0.7',
-            notes: [
-              { item: 'Initial macOS 10.14 Mojave support. Users that updated to Mojave before updating OpenEmu will need to manually download the update from openemu.org' },
-              { item: 'Added support for mapping controls with Touch Bar buttons.' },
-              { item: 'Added Step Frame Forward and Step Frame Backward special keys in Controls preferences.' },
-              { item: 'Added Fast Forward and Rewind notifications.' },
-              { item: 'Added "Show in Finder" menu item in Save States and Screenshots collections.' },
-              { item: 'Improved the Import Issue Resolver with a new modal UI.' },
-              { item: 'Improved using controls for digital buttons mapped onto an analog stick.' },
-              { item: 'Fixed audio becoming slightly out of sync after fast forwarding gameplay.' },
-              { item: 'Fixed audio glitches for PSP games.' },
-              { item: 'Fixed leftover window after quitting gameplay in a fullscreen popout window.' },
-              { item: 'Fixed empty windows in Mission Control after quitting gameplay.' },
-              { item: 'Fixed HUD bar remaining visible after closing popout window.' },
-              { item: 'Fixed games not sorting by "Last Played" in List View.' },
-              { item: 'Fixed case where bad/incomplete PSP game ISOs could be allowed to import.' },
-              { item: 'Fixed various UI issues in the Homebrew collection.' },
-              { item: 'Fixed a crash from mapping non-standard keys on external keyboards.' },
-              { item: 'Fixed a crash when a button profile for a previously mapped controller changed.' },
-              { item: 'Fixed a rare crash when deleting a game from a collection.' },
-              { item: 'Fixed a rare case where a ROM hack might not import.' },
-              { item: 'Fixed the appearance of localized text in various UI.' },
-              { item: 'Updated localizations.' },
-              { item: 'Updated Sparkle and XADMaster frameworks.' },
-            ]
-          },
-          {
-            version: '2.0.6.1',
-            notes: [
-              { item: 'Added Sega Saturn system support. — Very CPU intensive, minimum requirement of a quad-core i7 processor for full speed.' },
-              { item: 'Added <a href="https://github.com/gonetz/GLideN64">GLideN64</a> as the new default Mupen64Plus GPU plugin, significantly improving N64 graphics. — Overall game compatibility will further improve in a future update.' },
-              { item: 'Added Quick Look support in the Screenshots collection by pressing Space bar.' },
-              { item: 'Added light gun support for Sega Master System.' },
-              { item: 'Removed deprecated core plugins and their save states on launch.' },
-              { item: 'Improved N64 graphics.' },
-              { item: 'Improved UX for deleting games so they cannot be orphaned in the Game Library folder.' },
-              { item: 'Improved UX for importing M3U files where they could fail or crash.' },
-              { item: 'Improved Touch Bar graphics.' },
-              { item: 'Improved algorithm for reading the serial of a PlayStation game.' },
-              { item: 'Fixed a hang that occurs on 10.13 High Sierra.' },
-              { item: 'Fixed regression with compressed files not being correctly imported. — Would import decompressed but with the original compressed file extension.' },
-              { item: 'Fixed case where changing Game Library folder location could fail.' },
-              { item: 'Fixed case where clearing a control mapping would not save between launches.' },
-              { item: 'Fixed a crash accessing Game Library on NAS/SMB shares or external drives.' },
-              { item: 'Fixed a crash when deleting a game that was already deleted.' },
-              { item: 'Fixed a crash when downloading nonexistent cover art for a Homebrew collection game.' },
-              { item: 'Fixed a rare crash using cheat codes.' },
-              { item: 'Fixed Wii U Pro Controller analog axis range.' },
-              { item: 'Fixed fast forwarding interfering with pausing gameplay.' },
-              { item: 'Fixed sidebar not remembering width changes between launches.' },
-              { item: 'Fixed unwanted interpolation in screenshots.' },
-              { item: 'Fixed "Battle Heat" for PC-FX being falsely identified as TurboGrafx-CD/PCE CD.' },
-              { item: 'Fixed various 10.13 SDK issues and runtime warnings.' },
-              { item: 'Updated Japanese localization.' },
-              { item: 'Updated Sparkle framework.' },
-
-            ]
-          },
-          {
-            version: '2.0.5',
-            notes: [
-              { item: 'Added automap support for Nintendo Switch Pro Controller.' },
-              { item: 'Added localized PC Engine controller graphic.' },
-              { item: 'Improved TurboGrafx controller graphic with pixel perfect Retina version.' },
-              { item: 'Fixed library error alerts not displaying.' },
-              { item: 'Fixed a crash with games in fullscreen.' },
-              { item: 'Fixed a crash when importing an invalid cue sheet.' },
-              { item: 'Fixed a crash when importing an unmatched multi-disc game.' },
-              { item: 'Fixed rare crash at startup.' },
-              { item: 'Fixed a potential hang when migrating game library and preferences to a new machine.' },
-              { item: 'Fixed various 10.12 SDK UI issues.' },
-              { item: 'Updated localizations.' },
-              { item: 'Note: Touch Bar users should update to the latest macOS 10.12 for full support.' },
-            ]
-          },
-          {
-            version: '2.0.4',
-            notes: [
-              { item: 'Added support for the new MacBook Pro Touch Bar.' },
-              { item: 'Added gameplay preference to allow playing with controllers while in the background.' },
-              { item: 'Added automap support for PS4 Slim DualShock 4 (model CUH-ZCT2).' },
-              { item: 'Improved importing <a href="https://github.com/OpenEmu/OpenEmu/wiki/User-guide:-CD-based-games#q-i-have-a-multi-disc-game">Multi-Disc Games</a>.' },
-              { item: 'Fixed case where games would not load if a previous game failed to load.' },
-              { item: 'Fixed a potential crash when checking for and downloading core plugin updates.' },
-              { item: 'Fixed a crash when using the popout gameplay window and accessing the Services submenu on macOS 10.12.' },
-              { item: 'Fixed main window toolbar appearance for some localizations.' },
-              { item: 'Fixed various 10.12 SDK UI issues.' },
-              { item: 'Added Catalan localization.' },
-              { item: 'Updated localizations.' },
-            ]
-          },
-          {
-            version: '2.0.3',
-            notes: [
-              { item: 'Fixed analog controllers that send excessive input events (e.g. DualShock 4 and others) interfering with frontend and core functions.' },
-              { item: 'Fixed case where some bluetooth mice (e.g. Logitech MX Anywhere 2) break the input system.' },
-              { item: 'Fixed Steam Controller support when properly configured through Steam.' },
-              { item: 'Fixed case where cancelling an alert could make it impossible to stop or reset gameplay.' },
-              { item: 'Updated localizations.' },
-              { item: 'Other bug fixes and performance improvements.' },
-              { item: 'Note: Preferences for <a href="https://github.com/OpenEmu/OpenEmu/wiki/User-Guide:-Default-Cores">Default Cores</a> have been reset.' },
-            ]
-          },
-          {
-            version: '2.0.2',
-            notes: [
-              { item: 'Added <a href="https://mgba.io/">mGBA</a>, a faster and more accurate GBA emulator, as the new default GBA core plugin.' },
-              { item: 'Added automap support for Horipad Ultimate controller.' },
-              { item: 'Optimized input handling and core helper process to further reduce latency.' },
-              { item: 'Improved search results in Save States and Screenshots libraries to be more precise.' },
-              { item: 'Fixed N64 games running too fast.' },
-              { item: 'Fixed controllers with a hat switch not retaining their proper D-pad mappings.' },
-              { item: 'Fixed reversed Y-axis for MFi devices.' },
-              { item: 'Fixed case where BIOS files might not import correctly after a new core plugin install.' },
-              { item: 'Fixed case where suppressing an alert might not remember the choice correctly.' },
-              { item: 'Fixed the appearance of localized text in Library and Preferences with Auto Layout.' },
-              { item: 'Fixed screenshots not saving for game titles with forward slashes.' },
-              { item: 'Added Chinese (Simplified), Dutch, Japanese localizations.' },
-              { item: 'Updated localizations.' },
-              { item: 'Other bug fixes and performance improvements.' },
-            ]
-          },
-          {
-            version: '2.0.1',
-            notes: [
-              { item: 'Fixed new system plugins not being available.' },
-              { item: 'Fixed save states not saving if alert is suppressed.' },
-              { item: 'Add Odyssey²/Videopac controller graphic.' },
-              { item: 'Note: If BIOS files were not importing correctly after a new core install, please remove the imported files, restart the app and import your BIOS files again.' },
-            ]
-          },
-        ]
-      }
-    });
-  </script>
-
 </body>
 </html>
